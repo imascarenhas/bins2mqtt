@@ -44,13 +44,15 @@ const capitalize = (s: string) => {
 };
 
 const fetchBins = async () => {
+    const addressUprn = process.env.UPRN!;
+    
     const data = JSON.stringify({
         operatingsystemid: "1",
         version: "3.0.19",
         testmode: "0",
         notification: "1",
         token: "",
-        uprn: "100011553742",
+        uprn: addressUprn,
     });
 
     const response = await axios.post<TamesideResponse>(url, data, {
